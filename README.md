@@ -4,7 +4,7 @@
 <ol>
 <li>AngularJS: Get Started</li>
 <li>Angular Fundamentals</li>
-<li>Angular:The Big Picture<li>
+<li>Angular:The Big Picture</li>
 </ol>
 <li>Intermediate</li>
 <li>Advanced</li>
