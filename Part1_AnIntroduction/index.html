@@ -24,8 +24,10 @@
 
         <div ng-controller="MainController">
             <p>{{message}}</p>
-            <div class="alert alert-danger" role="alert">
-                {{error}}
+            <div ng-if="error">
+                <div ng-show="error" class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
             </div>
             <hr>
             <h1>GitHub Viewer</h1>
@@ -41,48 +43,10 @@
                         <button class="btn btn-info" type="submit" value="Search" ><span class="glyphicon glyphicon-search"></span></button>
                     </form>
                 </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Username: {{user.login}}</div>
-                    <div class="panel-body">
-                        <p>Name: {{user.name}}</p>
-                        <p>Location: {{user.location}}</p>
-                        <p>URL: {{user.html_url}}</p>
-                        <div>
-                            <p>Profile pic: </p>
-                            <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
-                        </div>
 
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Repositories</div>
-                            <div class="dropdown">
-                            Order:
-                            <select ng-model="repoSortOrder">
-                                <option value="+name">Name</option>
-                                <option value="-stargazers_count">Stars</option>
-                                <option value="+language">Language</option>
-                            </select>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Stars</th>
-                                        <th>Language</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
-                                        <td>{{repo.name}}</td>
-                                        <td>{{repo.stargazers_count | number}}</td>
-                                        <td>{{repo.language}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <div ng-include="'userDetails.html'" ng-show="user"></div>
 
-            <h2>This last part is just a test for a Math library - <a href="https://www.mathjax.org/">MathJax</a></h2>
-            <p>`x = (-b +- sqrt(b^2-4ac))/(2a) `</p>
+                <h2>This last part is just a test for a Math library - <a href="https://www.mathjax.org/">MathJax</a></h2>
+                <p>`x = (-b +- sqrt(b^2-4ac))/(2a) `</p>
     </body>
 </html>
