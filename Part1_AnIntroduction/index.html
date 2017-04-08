@@ -5,48 +5,23 @@
         <title>AngularJS: Get Started</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!--<script type="application/javascript" src="scripts/script.js"></script>-->
         <!--<script type="application/javascript" src="scripts/script2.js"></script>-->
         <!--<script src="scripts/script3.js"></script>-->
-        <script src="scripts/script4.js"></script>
-
-        <div class="page-header">
-            <h1>HTML to test the AngularJS Framework</h1>
-        </div>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/MainController.js"></script>
+        <script src="scripts/userController.js"></script>
+        <script src="scripts/RepoController.js"></script>
+        <script src="scripts/github.js"></script>
     </head>
     <body>
-        <p>Test a simple operation</p>
-        <!--<p>$$1000/ 2 ={{1000/2}} $$</p>-->
-        <p>`1000 / 2 = {{1000 / 2}}`</p>
-        <p>If the result was 500 then AngularJS is working properly</p>
-
-        <div ng-controller="MainController">
-            <p>{{message}}</p>
-            <div ng-if="error">
-                <div ng-show="error" class="alert alert-danger" role="alert">
-                    {{error}}
-                </div>
-            </div>
-            <hr>
-            <h1>GitHub Viewer</h1>
-            <div class="jumbotron" >
-                <div class="panel panel-success">
-                    <div class="panel-body">
-                        Searching for {{username}}
-                    </div>
-                </div>
-                <div>
-                    <form class="navbar-form" name="searchUser" ng-submit="search(username)">
-                        <input type="search" class="form-control" required placeholder="Username to find" ng-model="username"/>
-                        <button class="btn btn-info" type="submit" value="Search" ><span class="glyphicon glyphicon-search"></span></button>
-                    </form>
-                </div>
-
-                <div ng-include="'userDetails.html'" ng-show="user"></div>
-
-                <h2>This last part is just a test for a Math library - <a href="https://www.mathjax.org/">MathJax</a></h2>
-                <p>`x = (-b +- sqrt(b^2-4ac))/(2a) `</p>
+        <div class="page-header">
+            <h1>Github Viewer</h1>
+        </div>
+        <div ng-view></div>
     </body>
+
 </html>
