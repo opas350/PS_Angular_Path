@@ -1,0 +1,24 @@
+<h2>{{repo.name}}</h2>
+
+<div>
+    Issues: {{repo.open_issues_count}}
+</div>
+
+<div>
+    <ul>
+        <li ng-repeat="user in repo.collaborators">
+            <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+            {{user.login}}
+        </li>
+    </ul>
+</div>
+<button type="button" class="btn btn-warning">
+    <span>
+    <a href="#/main" class="glyphicon glyphicon-arrow-left">Back</a>
+    </span>
+</button>
+<button type="button" class="btn btn-warning">
+    <span>
+    <a href="#/user.{{repo.owner.login}}" class="glyphicon glyphicon-arrow-left">Back to {{repo.owner.login}}</a>
+    </span>
+</button>
